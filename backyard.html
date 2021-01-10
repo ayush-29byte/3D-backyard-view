@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D BACKYARD VIEW</title>
+</head>
+<body>
+    <div class="sky elem"></div>
+    <div class="lawn elem"></div>
+    <div class="home home--back elem">
+        <div class="home_shadow elem"></div>
+        <div class="home_side elem"></div>
+        <div class="door elem">
+            <div class="door_inside elem"></div>
+            <div class="door_panel elem"></div>
+        </div>
+        <div class="window elem">
+            <div class="window_inside elem"></div>
+            </div>
+            <div class="deck elem">
+                <div class="deck_side elem"></div>
+                <div class="deck_side elem"></div>
+                <div class="deck_front elem"></div>
+                <div class="deck_top elem"></div>
+                <div class="deck_light elem"></div>
+            </div>
+            <div class="roof elem"></div>
+    </div>
+    <div class="home elem">
+    <div class="home_shadow elem"></div>
+    <div class="home_side elem"></div>
+    <div class="door elem">
+        <div class="door_inside elem"></div>
+        <div class="door_panel elem"></div>
+        <div class="door_light elem"></div>
+    </div>
+    <div class="window elem">
+        <div class="window_inside elem"></div>
+        <div class="window_light elem"></div>
+    </div>
+    <div class="deck elem">
+        <div class="deck_side elem"></div>
+        <div class="deck_side elem"></div>
+        <div class="deck_front elem"></div>
+        <div class="deck_top elem"></div>
+        <div class="deck_light elem"></div>
+    </div>
+    <div class="roof elem"></div>
+    </div>
+    <div class="fence elem"></div>
+    <div class="bunny elem">
+        <div class="bunny_shadow elem"></div>
+        <div class="bunny_core elem"></div>
+        <div class="bunny_head elem">
+            <div class="bunny_nose elem"></div>
+            <div class="bunny_ear elem"></div>
+            <div class="bunny_ear elem"></div>
+        </div>
+        <div class="bunny_foot elem"></div>
+        <div class="bunny_foot elem"></div>
+        <div class="bunny_tail elem"></div>
+    </div>
+    <div class="bunny elem">
+        <div class="bunny_shadow elem"></div>
+        <div class="bunny_core elem"></div>
+        <div class="bunny_head elem">
+            <div class="bunny_nose elem"></div>
+            <div class="bunny_ear elem"></div>
+            <div class="bunny_ear elem"></div>
+        </div>
+        <div class="bunny_foot elem"></div>
+        <div class="bunny_foot elem"></div>
+        <div class="bunny_tail elem"></div>
+    </div>
+    <div class="bunny elem">
+        <div class="bunny_shadow elem"></div>
+        <div class="bunny_core elem"></div>
+        <div class="bunny_head elem">
+            <div class="bunny_nose elem"></div>
+            <div class="bunny_ear elem"></div>
+            <div class="bunny_ear elem"></div>
+        </div>
+        <div class="bunny_foot elem"></div>
+        <div class="bunny_foot elem"></div>
+        <div class="bunny_tail elem"></div>
+    </div>
+    <div class="bunny elem">
+        <div class="bunny_shadow elem"></div>
+        <div class="bunny_core elem"></div>
+        <div class="bunny_head elem">
+            <div class="bunny_nose elem"></div>
+            <div class="bunny_ear elem"></div>
+            <div class="bunny_ear elem"></div>
+        </div>
+        <div class="bunny_foot elem"></div>
+        <div class="bunny_foot elem"></div>
+        <div class="bunny_tail elem"></div>
+    </div>
+    <div class="bunny elem">
+        <div class="bunny_shadow elem"></div>
+        <div class="bunny_core elem"></div>
+        <div class="bunny_head elem">
+            <div class="bunny_nose elem"></div>
+            <div class="bunny_ear elem"></div>
+            <div class="bunny_ear elem"></div>
+        </div>
+        <div class="bunny_foot elem"></div>
+        <div class="bunny_foot elem"></div>
+        <div class="bunny_tail elem"></div>
+    </div>
+<style>
+    html,body{
+        height: 100%;
+        overflow: hidden;
+    }
+    .sky{
+        background: black;
+        width: 100%;
+        height: 100%;
+    }
+    .elem{
+        position: absolute;
+    }
+    .lawn{
+        background: #192e19;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 45%;
+    }
+    .home{
+        bottom: 10px;
+        right: 45%;
+        width: 100vh;
+        height: 100%;
+        transform-origin: 0 100%;
+        background: #1a071d;
+        transform: skewY(-20deg);
+    }
+    .home_side{
+        right: 100%;
+        top: 0;
+        bottom: 0px;
+        transform: skewY(20deg);
+        transform-origin: 100% 100%;
+        background: #250a29;
+        width: 9999px;
+    }
+    .home_shadow{
+        bottom: 0px;
+        left: 0px;
+        background: #162716;
+        width: 100%;
+        height: 9999px;
+        transform: skewX(70deg) translateY(9999px);
+        transform-origin: 0 100%;
+    }
+    .home--back{
+        bottom: 45%;
+        left: 64%;
+        opacity: 0.5;
+    }
+    .home--back .door{
+        opacity: 0.15;
+    }
+    .home--back .window{
+        opacity: 0.2;
+    }
+    .home--back .window::after{
+        display: none;
+    }
+    .roof{
+        width: 103%;
+        background: #1c122d;
+        height: 500vh;
+        bottom: 55%;
+        left: -2%;
+    }
+    .roof::after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 100%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10vh 0 0 4vh;
+        border-color: transparent transparent transparent
+        #1c122d;
+    }
+    .roof::before{
+        content: "";
+        position: absolute;
+        right: 100%;
+        background: #231638;
+        height: 100%;
+        width: 999999px;
+        transform-origin: 100% 0;
+        transform: skewY(20deg);
+    }
+    .deck{
+        width: 50%;
+        height: 5%;
+        background: #191510;
+        left: 28%;
+        bottom: 0%;
+    }
+    .deck_side{
+        width: 40vh;
+        left: 0;
+        bottom: 0;
+        background: #191510;
+        height: 100%;
+        transform: skewY(20deg);
+        transform-origin: 0 100%;
+    }
+    .deck_side + .deck_side{
+        left: 100%;
+    }
+    .deck_front{
+        background: #13100c;
+        width: 100%;
+        height: 100%;
+        left: 80%;
+        top: 290%;
+    }
+    .deck_top{
+        background: #272119;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 290%;
+        transform: skewX(70deg);
+        transform-origin: 0 0;
+    }
+    .deck_light{
+        background: #443a2e;
+        top: 0;
+        left: 24%;
+        width: 60%;
+        height: 290%;
+        transform: skewX(70deg);
+        transform-origin: 0 0;
+    }
+    .deck_light::after{
+        content: "";
+        position: absolute;
+        background: rgba(0,0,0,0.4);
+        width: 1vh;
+        height: 100%;
+        left: 30%;
+        top: 0;
+        filter: blur(0.2vh);
+    }
+    .door{
+        bottom: 0px;
+        left: 40%;
+        width: 30%;
+        background: #51165b;
+        height: 40%;
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+    }
+    .door_inside{
+        background: #fff5c1;
+        right: 1vh;
+        bottom: 6vh;
+        top: 0;
+        left: 0;
+        border-radius: 1vh 0.5vh;
+    }
+    .door_light{
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #284c28;
+        transform: skewX(70deg);
+        transform-origin: 0 0;
+        border-radius: 0 0 20px 25px;
+    }
+    .deck_light::after{
+        content: "";
+        position: absolute;
+        background: #162716;
+        width: 1vh;
+        height: 100%;
+        left: 30%;
+        top: 0;
+        filter: blur(0.2vh);
+    }
+    .door_panel{
+        width: 30%;
+        height: 100%;
+        border-right: 1vh solid rgba(0,0,0,0.65);
+        top: 0;
+        left: 0;
+        border-radius: 10px 0 0 0;
+    }
+    .window{
+        bottom: 20%;
+        left: 7%;
+        width: 24%;
+        height: 20%;
+        background: #51165b;
+        border-radius: 1vh;
+    }
+    .window_inside{
+        background: #fff5c1;
+        right: 1vh;
+        bottom: 1vh;
+        top: 0;
+        left: 0;
+        border-radius: 1vh 0.5vh;
+    }
+    .window_light{
+        top: 310%;
+        left: 250%;
+        width: 100%;
+        height: 100%;
+        background: #284c28;
+        transform: skewX(70deg);
+        transform-origin: 0 0;
+        border-radius: 25px;
+    }
+    .window_light::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(#162716,
+        #162716 2.5vh,transparent 2.5vh,transparent 4vh);
+        border-radius: 25px;
+        transform: rotate(180deg);
+        opacity: 0.65;
+    }
+    .window::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(black,black
+        2.5vh,transparent 2.5vh,transparent 4vh);
+        border-radius: 1vh;
+        opacity: 0.5;
+    }
+    .fence{
+        bottom: calc(36.5vh + 10px);
+        bottom: 42%;
+        left: 55%;
+        right: 0;
+        height: 30%;
+        background: #100d0a;
+    }
+    .bunny{
+        bottom: 21.5%;
+        left: 70%;
+        width: 4vh;
+        height: 5.5vh;
+    }
+    .bunny_core{
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 100%;
+        background: linear-gradient(to right,
+        #050a05,#020302);
+    }
+    .bunny_shadow{
+        height: 35%;
+        width: 999999px;
+        background: #162716;
+        bottom: 0;
+        left: 50%;
+    }
+    .bunny_head{
+        background: linear-gradient(to right,
+        #050a05,#020302);
+        width: 100%;
+        padding-top: 90%;
+        border-radius: 45%;
+        bottom: 70%;
+        right: 20%;
+    }
+    .bunny_nose{
+        background: linear-gradient(to right,
+        #050a05,#020302);
+        width: 35%;
+        height: 33%;
+        border-radius: 0 0.5vh;
+        top: 45%;
+        right: 72%;
+        transform: rotate(35deg);
+    }
+    .bunny_ear{
+        background: linear-gradient(to right,
+        #050a05,#020302);
+        width: 40%;
+        height: 80%;
+        border-radius: 100%;
+        bottom: 60%;
+        right: 10%;
+    }
+    .bunny_ear + .bunny_ear{
+        bottom: 50%;
+        right: 40%;
+    }
+    .bunny_foot{
+        background: linear-gradient(to right,
+        #050a05,#020302);
+        width: 100%;
+        bottom: -5%;
+        right: 22%;
+        height: 25%;
+        border-radius: 80% 20% 40% 80%;
+    }
+    .bunny_foot + .bunny_foot{
+        right: 10%;
+        bottom: 15%;
+    }
+    .bunny_tail{
+        width: 60%;
+        padding-top: 60%;
+        background: #020302;
+        border-radius: 100% 25%;
+        bottom: 3%;
+        left: 70%;
+    }
+    .bunny + .bunny{
+        left: 76%;
+        bottom: 17%;
+        transform: scale(0.85) rotate(-10deg) skewY(5deg);
+    }
+    .bunny + .bunny .bunny_shadow{
+        transform: rotate(10deg) skewY(-5deg);
+        transform-origin: 0 0;
+        bottom: 0.2vh;
+    }
+    .bunny + .bunny + .bunny + .bunny{
+        left: 85%;
+        bottom: 23%;
+        transform: scale(0.6) rotate(-4deg);
+    }
+    .bunny + .bunny + .bunny + .bunny .bunny_shadow{
+        transform: rotate(4deg);
+        transform-origin: 0 0;
+    }
+</style>
+</body>
+</html>
